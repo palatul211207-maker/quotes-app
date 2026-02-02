@@ -4,24 +4,55 @@
     <meta charset="UTF-8">
     <title>Daily Motivation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="style.css">
 
-    <!-- AdSense yahan baad me aayega -->
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+    <script>
+        // 🔴 YAHAN APNA FIREBASE CONFIG DALO
+        var firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
 </head>
+
 <body>
 
-    <h1>🌟 Daily Motivation 🌟</h1>
+<h1>🌟 Daily Motivation 🌟</h1>
 
-    <div id="quoteBox">
-        <p id="quote">Loading...</p>
-        <button onclick="newQuote()">New Quote</button>
-    </div>
+<!-- LOGIN BOX -->
+<div id="loginBox">
+    <h3>Login to Continue</h3>
+    <input type="text" id="phone" placeholder="+91XXXXXXXXXX">
+    <div id="recaptcha-container"></div>
+    <button onclick="sendOTP()">Send OTP</button>
 
-    <!-- Display Ad place -->
-    <div class="ad-box">
-        <p>Ad Space</p>
-    </div>
+    <input type="text" id="otp" placeholder="Enter OTP">
+    <button onclick="verifyOTP()">Verify OTP</button>
+</div>
 
-    <script src="script.js"></script>
+<!-- TOP AD -->
+<div class="ad-box">
+    Top Ad Space
+</div>
+
+<!-- QUOTE BOX -->
+<div id="quoteBox" style="display:none;">
+    <p id="quote">Loading...</p>
+    <button onclick="newQuote()">New Quote</button>
+</div>
+
+<!-- BOTTOM AD -->
+<div class="ad-box">
+    Bottom Ad Space
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
