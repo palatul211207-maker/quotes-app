@@ -7,7 +7,7 @@
 
 <link rel="stylesheet" href="style.css">
 
-<!-- Firebase v8 -->
+<!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 
@@ -28,7 +28,6 @@ firebase.initializeApp(firebaseConfig);
 
 <h1>🌟 Daily Motivation 🌟</h1>
 
-<!-- LOGIN -->
 <div id="loginBox">
   <input type="email" id="email" placeholder="Email"><br><br>
   <input type="password" id="password" placeholder="Password"><br><br>
@@ -37,13 +36,14 @@ firebase.initializeApp(firebaseConfig);
   <button onclick="login()">Login</button>
 </div>
 
-<!-- APP -->
 <div id="quoteBox" style="display:none;">
   <p id="quote"></p>
   <button onclick="newQuote()">New Quote</button><br><br>
   <button onclick="logout()">Logout</button>
 </div>
 
+<!-- IMPORTANT -->
 <script src="script.js"></script>
+
 </body>
 </html>
