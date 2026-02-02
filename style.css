@@ -9,6 +9,30 @@ h1 {
     color: #333;
 }
 
+#loginBox {
+    background: white;
+    padding: 20px;
+    max-width: 350px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 8px 0;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 #quoteBox {
     background: white;
     padding: 20px;
@@ -22,17 +46,11 @@ h1 {
     margin-bottom: 15px;
 }
 
-button {
-    padding: 10px 20px;
-    border: none;
-    background: #007bff;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
 .ad-box {
-    margin-top: 20px;
-    background: #ddd;
+    margin: 20px auto;
+    background: #e0e0e0;
     padding: 30px;
+    max-width: 400px;
+    border-radius: 8px;
+    color: #555;
 }
