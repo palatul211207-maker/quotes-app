@@ -6,23 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="style.css">
-
-    <!-- Firebase SDKs (COMPAT VERSION – IMPORTANT) -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-
-    <!-- ✅ FINAL FIREBASE CONFIG (TUMHARA) -->
-    <script>
-        var firebaseConfig = {
-            apiKey: "AIzaSyA8W6dasT4EGA09vAd0xQLusWGMVkx87oc",
-            authDomain: "quotes-a8123.firebaseapp.com",
-            projectId: "quotes-a8123",
-            storageBucket: "quotes-a8123.appspot.com",
-            messagingSenderId: "151713806844",
-            appId: "1:151713806844:web:7056dea609e4af20a91a79"
-        };
-        firebase.initializeApp(firebaseConfig);
-    </script>
 </head>
 
 <body>
@@ -50,7 +33,7 @@
 
 <!-- 💬 QUOTES (LOGIN KE BAAD HI DIKHEGA) -->
 <div id="quoteBox" style="display:none;">
-    <p id="quote">Loading...</p>
+    <p id="quote">Welcome 🎉</p>
     <button onclick="newQuote()">New Quote</button>
 </div>
 
@@ -59,6 +42,65 @@
     Bottom Ad Space
 </div>
 
-<script src="script.js"></script>
+<!-- 🔥 FIREBASE v9 FINAL CODE -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyA8W6dasT4EGAO9vAd0xQLusWGMVkx87oc",
+        authDomain: "quotes-a8123.firebaseapp.com",
+        projectId: "quotes-a8123",
+        storageBucket: "quotes-a8123.appspot.com",
+        messagingSenderId: "151713806844",
+        appId: "1:151713806844:web:7056dea609e4af20a91a79"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    window.recaptchaVerifier = new RecaptchaVerifier(
+        "recaptcha-container",
+        { size: "normal" },
+        auth
+    );
+
+    window.sendOTP = function () {
+        const phone = document.getElementById("phone").value;
+        signInWithPhoneNumber(auth, phone, window.recaptchaVerifier)
+            .then((confirmationResult) => {
+                window.confirmationResult = confirmationResult;
+                alert("OTP sent ✅");
+            })
+            .catch((error) => {
+                alert(error.message);
+            });
+    };
+
+    window.verifyOTP = function () {
+        const code = document.getElementById("otp").value;
+        confirmationResult.confirm(code)
+            .then(() => {
+                alert("Login successful 🎉");
+                document.getElementById("loginBox").style.display = "none";
+                document.getElementById("quoteBox").style.display = "block";
+            })
+            .catch(() => {
+                alert("Wrong OTP ❌");
+            });
+    };
+
+    window.newQuote = function () {
+        const quotes = [
+            "Believe in yourself 💪",
+            "Never give up 🔥",
+            "Hard work pays off 💯",
+            "Success is coming 🚀"
+        ];
+        document.getElementById("quote").innerText =
+            quotes[Math.floor(Math.random() * quotes.length)];
+    };
+</script>
+
 </body>
 </html>
