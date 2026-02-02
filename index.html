@@ -7,16 +7,19 @@
 
     <link rel="stylesheet" href="style.css">
 
-    <!-- Firebase SDKs -->
+    <!-- Firebase SDKs (COMPAT VERSION – IMPORTANT) -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 
+    <!-- ✅ FINAL FIREBASE CONFIG (TUMHARA) -->
     <script>
-        // 🔴 YAHAN APNA FIREBASE CONFIG DALO
         var firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_PROJECT.firebaseapp.com",
-            projectId: "YOUR_PROJECT_ID",
+            apiKey: "AIzaSyA8W6dasT4EGA09vAd0xQLusWGMVkx87oc",
+            authDomain: "quotes-a8123.firebaseapp.com",
+            projectId: "quotes-a8123",
+            storageBucket: "quotes-a8123.appspot.com",
+            messagingSenderId: "151713806844",
+            appId: "1:151713806844:web:7056dea609e4af20a91a79"
         };
         firebase.initializeApp(firebaseConfig);
     </script>
@@ -26,29 +29,32 @@
 
 <h1>🌟 Daily Motivation 🌟</h1>
 
-<!-- LOGIN BOX -->
+<!-- 🔐 LOGIN BOX -->
 <div id="loginBox">
     <h3>Login to Continue</h3>
+
     <input type="text" id="phone" placeholder="+91XXXXXXXXXX">
+
     <div id="recaptcha-container"></div>
+
     <button onclick="sendOTP()">Send OTP</button>
 
     <input type="text" id="otp" placeholder="Enter OTP">
     <button onclick="verifyOTP()">Verify OTP</button>
 </div>
 
-<!-- TOP AD -->
+<!-- 📢 TOP AD PLACE -->
 <div class="ad-box">
     Top Ad Space
 </div>
 
-<!-- QUOTE BOX -->
+<!-- 💬 QUOTES (LOGIN KE BAAD HI DIKHEGA) -->
 <div id="quoteBox" style="display:none;">
     <p id="quote">Loading...</p>
     <button onclick="newQuote()">New Quote</button>
 </div>
 
-<!-- BOTTOM AD -->
+<!-- 📢 BOTTOM AD PLACE -->
 <div class="ad-box">
     Bottom Ad Space
 </div>
